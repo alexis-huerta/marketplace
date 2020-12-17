@@ -8,7 +8,6 @@ import { SignInModalComponent } from './components/sign-in-modal/sign-in-modal.c
   styleUrls: ['./login-page.component.sass']
 })
 export class LoginPageComponent implements OnInit {
-
   
   constructor(public dialog: MatDialog) {
   }
@@ -24,5 +23,7 @@ export class LoginPageComponent implements OnInit {
       console.log('dialog result', result);
     });
   }
+
+
 
 }

@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', loadChildren: './login-page/login-page.module#LoginPageModule'},
+  { path: '', loadChildren: './pages/login-page/login-page.module#LoginPageModule'},
+  { path: 'vendedor', loadChildren: './pages/seller-page/seller-page.module#SellerPageModule'},
   { path: '**', redirectTo: '' },
 ];
 
