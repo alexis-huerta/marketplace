@@ -7,11 +7,11 @@ export class User {
 
   constructor() {}
 
-  public static parse(obj: any): User {
+ static parse(obj: any): User {
     return new User().set(obj);
   }
 
-  public set(obj: any): this {
+ set(obj: any): this {
     this.id = Number(obj.id || this.id || 0);
     this.email = String(obj.email || this.email || '');
     this.password = String(obj.password || this.password || '');
@@ -19,11 +19,11 @@ export class User {
     return this;
   }
 
-  public clone(): User {
+ clone(): User {
     return new User().set(this);
   }
 
-  public clear(): this {
+ clear(): this {
     Object.keys(this).forEach((key) => {
       this[key] = null;
     });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_core/models/user/user.model';
-import { UserApiService } from 'src/app/_core/user/user-api.service';
+import { UserApiService } from 'src/app/_core/services/user/user-api.service';
 
 @Component({
   selector: 'app-sign-in-modal',
