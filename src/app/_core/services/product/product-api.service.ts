@@ -19,4 +19,17 @@ export class ProductApiService {
       
     }))
   }
+
+  createProduct(product: Product) {
+    const params = {
+      name: product.name,
+      sku: product.sku,
+      user_id: 1,
+      quantity: product.quantity,
+      price: product.price
+    }
+
+    return this._http.post(this.url + 'products' , params)
+    .pipe(map((response: any) => response.json()));
+  }
 }

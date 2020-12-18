@@ -27,6 +27,14 @@
       "sku": "123456",
       "quantity": 2,
       "price": 80
+    },
+    {
+      "name": "espejo",
+      "sku": "12ddw4521",
+      "user_id": 1,
+      "quantity": "20",
+      "price": "120",
+      "id": 2
     }
   ]
 }

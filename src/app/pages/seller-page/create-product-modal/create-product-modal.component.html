@@ -1,0 +1,13 @@
+<section>
+  <form action="">
+    <label for="">Nombre:</label> <br>
+    <input type="text" name="name" [(ngModel)]="product.name"> <br>
+    <label for="">SKU:</label> <br>
+    <input type="text" name="sku" [(ngModel)]="product.sku"> <br>
+    <label for="">Cantidad:</label> <br>
+    <input type="text" name="quantity" [(ngModel)]="product.quantity"> <br>
+    <label for="">Precio:</label> <br>
+    <input type="text" name="price" [(ngModel)]="product.price"> <br>
+    <button (click)="createProduct()">Crear</button>
+  </form>
+</section>
