@@ -1,1 +1,18 @@
-<p>buyer-page works!</p>
+<section>
+  <div class="products-container">
+    <div class="filters">
+      <input type="text">
+    </div>
+    <div>
+      <div>
+        <input type="text">
+      </div>
+      <div class="cards">
+        <div *ngFor="let product of products" class="card">
+          <img src="https://image.flaticon.com/icons/png/512/58/58215.png" alt="">
+          <p>{{ product.name }} <br> {{ product.sku }} <br>$ {{product.price}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
