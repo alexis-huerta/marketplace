@@ -1,0 +1,6 @@
+<div class="cards">
+    <div *ngFor="let product of products" class="card">
+      <img src="https://image.flaticon.com/icons/png/512/58/58215.png" alt="">
+      <p>{{ product.name }} <br> {{ product.sku }} <br>$ {{product.price}}</p>
+    </div>
+  </div>

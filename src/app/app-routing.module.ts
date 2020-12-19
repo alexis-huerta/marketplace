@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: '', loadChildren: './pages/login-page/login-page.module#LoginPageModule'},
   { path: 'vendedor', loadChildren: './pages/seller-page/seller-page.module#SellerPageModule'},
   { path: 'comprador', loadChildren: './pages/buyer-page/buyer-page.module#BuyerPageModule'},
+  { path: 'administrador', loadChildren: './pages/admin-page/admin-page.module#AdminPageModule'},
   { path: '**', redirectTo: '' },
 ];
 
