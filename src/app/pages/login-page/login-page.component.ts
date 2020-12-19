@@ -5,7 +5,7 @@ import { SignInModalComponent } from './components/sign-in-modal/sign-in-modal.c
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.sass']
+  styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
   

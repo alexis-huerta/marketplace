@@ -1,0 +1,50 @@
+section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    url("/../../../assets/images/triangle-3.png") no-repeat top left / 15%,
+    url("/../../../assets/images/triangle-2.png") no-repeat bottom / 28%,
+    url("/../../../assets/images/triangle-1.png") no-repeat right / 15%,
+    linear-gradient(to left, #E62B2B, #E6B238);
+}
+
+.login-container {
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 0.6rem;
+  box-shadow: 6px 9px 9px rgb(0 0 0 / 22%);
+  color: #777777;
+  font-size: 0.9rem;
+
+  label {
+    margin: 0.4rem 0;
+    display: block;
+  }
+
+  button {
+    margin: 0.5rem auto;
+    margin-top: 1rem;
+  }
+
+  .dialog-button {
+    text-align: center;
+
+    a {
+      cursor: pointer;
+      color: #D55858;
+      border-bottom: 1px solid #D55858;
+
+    }
+
+  }
+
+  .logo-container {
+    text-align: center;
+
+    img {
+      width: 8rem;
+    }
+  }
+}

@@ -1,2 +1,23 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+input, button {
+    display: block;
+    outline: none;
+}
+
+input {
+    height: 1.4rem;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid gray;
+    padding-left: 10px;
+}
+
+button {
+    border-radius: 3.9px;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-image: linear-gradient(to left, #E62B2B, #E6B238);
+    color: #ffffff;
+}
