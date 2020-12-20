@@ -3,34 +3,7 @@
    height: 100%;
  }
 
- .top-bar {
-   background-image: linear-gradient(to left, #E62B2B, #E6B238);
-   height: 3.5rem;
-   padding: 0 2rem;
-   display: flex;
-   justify-content: space-between;
 
-   .logo,
-   .user {
-     display: flex;
-     align-items: center;
-   }
-
-   .logo {
-     img {
-       width: 10rem;
-     }
-   }
-
-   .user {
-     color: #ffffff;
-
-     img {
-       width: 2.3rem;
-       margin-right: 10px;
-     }
-   }
- }
 
  .info-container {
    display: grid;
