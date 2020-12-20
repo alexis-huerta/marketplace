@@ -7,7 +7,7 @@ import { CreateProductModalComponent } from './create-product-modal/create-produ
 @Component({
   selector: 'app-seller-page',
   templateUrl: './seller-page.component.html',
-  styleUrls: ['./seller-page.component.sass']
+  styleUrls: ['./seller-page.component.scss']
 })
 export class SellerPageComponent implements OnInit {
   products: Product;

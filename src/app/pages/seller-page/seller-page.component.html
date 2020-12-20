@@ -1,19 +1,45 @@
 <section>
-  <div>
-    <button (click)="openDialog()">crear Producto</button>
+  <div class="top-bar">
+    <div class="logo">
+      <img src="./../../../assets/images/logo-white.png" alt="">
+    </div>
+    <div class="user">
+      <img src="./../../../assets/images/users.png" alt="">
+      <p>Juan Perez</p>
+    </div>
   </div>
-  <div>
-    <table>
-      <tr>
-        <th>Nombre del producto</th>
-        <th>SKU</th>
-        <th>Cantidad</th>
-      </tr>
-      <tr *ngFor="let product of products">
-        <td>{{ product.name }}</td>
-        <td>{{ product.sku }}</td>
-        <td>{{ product.quantity }}</td>
-      </tr>
-    </table>
+
+  <div class="info-container">
+    <div class="menu">
+      <ul>
+        <li>Dashboard</li>
+        <li>Cotizaciones</li>
+        <li>Ordenes</li>
+        <li>Inventario</li>
+      </ul>
+    </div>
+
+    <div class="table-container">
+      <div>
+        <div class="button-container">
+          <button class="create-button" (click)="openDialog()">Crear producto</button>
+        </div>
+        <table>
+
+          <tr class="table-head">
+            <th>Producto</th>
+            <th>SKU</th>
+            <th>Cantidad</th>
+          </tr>
+          <tr *ngFor="let product of products">
+            <td>{{ product.name }}</td>
+            <td>{{ product.sku }}</td>
+            <td>{{ product.quantity }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
   </div>
+
 </section>
