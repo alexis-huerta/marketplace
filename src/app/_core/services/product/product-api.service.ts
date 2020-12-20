@@ -8,6 +8,7 @@ import { Product } from '../../models/product/product.model';
 })
 export class ProductApiService {
   url = "http://localhost:3000/";
+  userId = 1;
   constructor(private _http: HttpClient) { }
 
   getProducts() {
@@ -17,7 +18,17 @@ export class ProductApiService {
         products: (response).map(product => Product.parse(product) )
       }
       
-    }))
+    }));
+  }
+
+  getProductsBySeller() {
+    return this._http.get(this.url + 'products?user_id=' + + this.userId) 
+    .pipe(map((response: any) =>{
+      return { 
+        products: (response).map(product => Product.parse(product) )
+      }
+      
+    }));
   }
 
   createProduct(product: Product) {

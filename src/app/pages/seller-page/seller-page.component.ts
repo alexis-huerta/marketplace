@@ -21,7 +21,7 @@ export class SellerPageComponent implements OnInit {
   }
 
   getProducts() {
-     this._productsApiService.getProducts()
+     this._productsApiService.getProductsBySeller()
      .subscribe(response => {
       this.products = response.products;
       console.log(this.products);
