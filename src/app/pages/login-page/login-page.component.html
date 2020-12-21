@@ -3,10 +3,28 @@
     <div class="logo-container">
       <img src="./../../../assets/images/logo.png" alt="">
     </div>
-    <label for="">Correo:</label>
-    <input type="text">
-    <label for="">Contraseña:</label>
-    <input type="password">
+    <form [formGroup]="loginForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngFor="let error of errorMessage.email">
+          <ng-container *ngIf="isValidFild('email') && getErrorMessage('email', error.type)">
+            {{ error.message }}
+          </ng-container>
+        </mat-error>
+      </mat-form-field> <br>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="password" required>
+        <mat-error *ngFor="let error of errorMessage.password">
+          <ng-container *ngIf="isValidFild('password') && getErrorMessage('password', error.type)">
+            {{ error.message }}
+          </ng-container>
+        </mat-error>
+      </mat-form-field>
+
+    </form>
     <button>Iniciar sesión</button>
     <div class="dialog-button">
       <a (click)="openDialog()"> Crear cuenta </a>
