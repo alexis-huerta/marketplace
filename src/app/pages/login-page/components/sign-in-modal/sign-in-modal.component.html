@@ -1,12 +1,48 @@
 <section>
   <h1>Crear cuenta</h1>
-  <form action="">
-    <label for="">Email:</label><br>
-    <input type="text" name="email" [(ngModel)]="user.email "> <br>
-    <label for="">Contraseña:</label><br>
-    <input type="password" name="password" [(ngModel)]="user.password"> <br>
-    <label for="">Confirmar contraseña:</label><br>
-    <input type="password" name="confirm">
-    <button (click)="createUser(user)"> crear</button>
+  <form [formGroup]="singinForm" (ngSubmit)="createUser()">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="email" required>
+      <mat-error *ngFor="let error of errorMessage.email">
+        <ng-container *ngIf="isValidFild('email') && getErrorMessage('email', error.type)">
+          {{ error.message }}
+        </ng-container>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput formControlName="password" required>
+      <mat-error *ngFor="let error of errorMessage.password">
+        <ng-container *ngIf="isValidFild('password') && getErrorMessage('password', error.type)">
+          {{ error.message }}
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput formControlName="confirmedPassword" required>
+      <mat-error
+        *ngIf="singinForm.controls.confirmedPassword.errors && singinForm.controls.confirmedPassword.errors.mustMatch">
+        Las contraseñas no coinciden
+      </mat-error>
+
+      <mat-error *ngFor="let error of errorMessage.password">
+        <ng-container *ngIf="isValidFild('confirmedPassword') && getErrorMessage('confirmedPassword', error.type)">
+          {{ error.message }}
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-radio-group aria-label="Select an option" formControlName="type">
+      <mat-radio-button value="buyer">Comprador</mat-radio-button>
+      <mat-radio-button value="seller">Vendedor</mat-radio-button>
+    </mat-radio-group>
+
+    <button type="submit" class="create-button" [disabled]="singinForm.invalid">Crear</button>
   </form>
 </section>

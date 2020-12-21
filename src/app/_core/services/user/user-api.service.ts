@@ -15,7 +15,7 @@ export class UserApiService {
     const params = {
       email: user.email,
       password: user.password,
-      type: "seller"
+      type: user.type
     }
 
     return this._http.post(this.url + 'users' , params)

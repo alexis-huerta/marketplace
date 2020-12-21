@@ -17,6 +17,24 @@
       "password": "123456789",
       "type": "seller",
       "id": 3
+    },
+    {
+      "email": "swsw@email.com",
+      "password": "dedeed",
+      "type": "seller",
+      "id": 4
+    },
+    {
+      "email": "",
+      "password": "",
+      "type": "seller",
+      "id": 5
+    },
+    {
+      "email": "ejemplo@mail.com",
+      "password": "123456",
+      "type": "buyer",
+      "id": 6
     }
   ],
   "products": [
