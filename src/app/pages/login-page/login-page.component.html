@@ -3,7 +3,7 @@
     <div class="logo-container">
       <img src="./../../../assets/images/logo.png" alt="">
     </div>
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" >
       <mat-form-field class="example-full-width">
         <mat-label>Correo</mat-label>
         <input matInput formControlName="email" required>
@@ -23,11 +23,13 @@
           </ng-container>
         </mat-error>
       </mat-form-field>
-
+      
     </form>
-    <button>Iniciar sesión</button>
+    <button (click)="login()" >Iniciar sesión</button>
     <div class="dialog-button">
       <a (click)="openDialog()"> Crear cuenta </a>
     </div>
   </div>
+
+  i
 </section>

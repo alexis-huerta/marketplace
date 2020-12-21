@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { User } from 'src/app/_core/models/user/user.model';
+import { UserApiService } from 'src/app/_core/services/user/user-api.service';
 import { SignInModalComponent } from './components/sign-in-modal/sign-in-modal.component';
 
 @Component({
@@ -22,7 +25,11 @@ export class LoginPageComponent implements OnInit {
   }
   loginForm: FormGroup;
   
-  constructor(public dialog: MatDialog,  public formBuilder: FormBuilder) {
+  constructor(
+    public dialog: MatDialog,  
+    public formBuilder: FormBuilder,
+    private _userApiService: UserApiService,
+    private _router: Router) {
     this.loginForm = this.formBuilder.group({
       email: ['', [
         Validators.required,
@@ -38,6 +45,7 @@ export class LoginPageComponent implements OnInit {
 
 
   ngOnInit() {
+    this.getCurrentSession()
   }
 
   openDialog() {
@@ -50,8 +58,6 @@ export class LoginPageComponent implements OnInit {
 
   getErrorMessage(fild: string, error: string): boolean {
     return this.loginForm.get(fild).hasError(error);
- 
-     
   }
 
   isValidFild(fild: string): boolean {
@@ -59,6 +65,34 @@ export class LoginPageComponent implements OnInit {
     && !this.loginForm.get(fild).valid
   }
 
+  login() {
+      this._userApiService.login(this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe(response => {
+        localStorage.setItem('session',JSON.stringify(response.user[0]));
+        this.goTo(response.user[0].type);
+      }, error => {console.log(error)}
+      )
+  }
+
+  getCurrentSession() {
+    this._userApiService.getCurrentSession();
+  }
+
+  goTo(type: string) {
+    switch(type) {
+      case 'seller': 
+      this._router.navigate(['/vendedor'])
+      break
+      case 'buyer': 
+      this._router.navigate(['/comprador'])
+      break
+      case 'admin': 
+      this._router.navigate(['/administrador'])
+      break
+    }
+  }
+
+  
 
 
 }

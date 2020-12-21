@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Product } from 'src/app/_core/models/product/product.model';
 import { ProductApiService } from 'src/app/_core/services/product/product-api.service';
-import { CreateProductModalComponent } from './create-product-modal/create-product-modal.component';
+import { CreateProductModalComponent } from './components/create-product-modal/create-product-modal.component';
 
 @Component({
   selector: 'app-seller-page',
@@ -24,8 +24,6 @@ export class SellerPageComponent implements OnInit {
      this._productsApiService.getProductsBySeller()
      .subscribe(response => {
       this.products = response.products;
-      console.log(this.products);
-      
      }, error => {
        console.log(error);
      });

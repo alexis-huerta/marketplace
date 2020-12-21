@@ -25,11 +25,6 @@
     <mat-form-field class="example-full-width">
       <mat-label>Contraseña</mat-label>
       <input type="password" matInput formControlName="confirmedPassword" required>
-      <mat-error
-        *ngIf="singinForm.controls.confirmedPassword.errors && singinForm.controls.confirmedPassword.errors.mustMatch">
-        Las contraseñas no coinciden
-      </mat-error>
-
       <mat-error *ngFor="let error of errorMessage.password">
         <ng-container *ngIf="isValidFild('confirmedPassword') && getErrorMessage('confirmedPassword', error.type)">
           {{ error.message }}

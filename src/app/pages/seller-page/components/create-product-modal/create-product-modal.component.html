@@ -1,0 +1,46 @@
+<section>
+  <form [formGroup]="productForm" (ngSubmit)="createProduct()" >
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" required>
+      <mat-error *ngFor="let error of errorMessage.name">
+        <ng-container *ngIf="isValidFild('name') && getErrorMessage('name', error.type)">
+          {{ error.message }}
+        </ng-container>
+      </mat-error>
+    </mat-form-field> <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Sku</mat-label>
+      <input matInput formControlName="sku" required>
+      <mat-error *ngFor="let error of errorMessage.sku">
+        <ng-container *ngIf="isValidFild('sku') && getErrorMessage('sku', error.type)">
+          {{ error.message }}
+        </ng-container>
+      </mat-error>
+    </mat-form-field> <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Cantidad</mat-label>
+      <input type="number" matInput formControlName="quantity" required>
+      <mat-error *ngFor="let error of errorMessage.quantity">
+        <ng-container *ngIf="isValidFild('quantity') && getErrorMessage('quantity', error.type)">
+          {{ error.message }}
+        </ng-container>
+      </mat-error>
+    </mat-form-field> <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Precio</mat-label>
+      <input type="number" matInput formControlName="price" required>
+      <mat-error *ngFor="let error of errorMessage.price">
+        <ng-container *ngIf="isValidFild('price') && getErrorMessage('price', error.type)">
+          {{ error.message }}
+        </ng-container>
+      </mat-error>
+    </mat-form-field> <br>
+
+    <button type="submit" (click)="createProduct()">Crear</button>
+  </form>
+</section>

@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { SellerPageRoutingModule } from './seller-page-routing.module';
 import { SellerPageComponent } from './seller-page.component';
-import { CreateProductModalComponent } from './create-product-modal/create-product-modal.component';
+import { CreateProductModalComponent } from './components/create-product-modal/create-product-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TopBarModule } from 'src/app/_core/modules/top-bar/top-bar.module';
+import { MatInputModule } from '@angular/material';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { TopBarModule } from 'src/app/_core/modules/top-bar/top-bar.module';
     SellerPageRoutingModule,
     MatDialogModule,
     FormsModule,
-    TopBarModule
+    TopBarModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   entryComponents: [ CreateProductModalComponent ]
 })

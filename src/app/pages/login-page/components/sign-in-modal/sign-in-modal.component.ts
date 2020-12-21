@@ -89,8 +89,6 @@ export class SignInModalComponent implements OnInit {
 
   getErrorMessage(fild: string, error: string): boolean {
     return this.singinForm.get(fild).hasError(error);
- 
-     
   }
 
   isValidFild(fild: string): boolean {

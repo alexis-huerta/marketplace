@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "email": "example@mail.com",
-      "password": "123",
+      "email": "hola@mail.com",
+      "password": "123456",
       "type": "seller"
     },
     {
@@ -35,6 +35,12 @@
       "password": "123456",
       "type": "buyer",
       "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
     }
   ],
   "products": [
@@ -77,6 +83,76 @@
       "quantity": "20",
       "price": "120",
       "id": 5
+    },
+    {
+      "name": "Tenis",
+      "sku": "dwdewdew-51516",
+      "user_id": 1,
+      "quantity": 20,
+      "price": 10,
+      "id": 6
+    },
+    {
+      "name": "Tenis",
+      "sku": "dwdewdew-51516",
+      "user_id": 1,
+      "quantity": 20,
+      "price": 10,
+      "id": 7
+    },
+    {
+      "name": "",
+      "sku": "",
+      "user_id": 1,
+      "quantity": "",
+      "price": "",
+      "id": 8
+    },
+    {
+      "name": "",
+      "sku": "",
+      "user_id": 1,
+      "quantity": "",
+      "price": "",
+      "id": 9
+    },
+    {
+      "name": "",
+      "sku": "",
+      "user_id": 1,
+      "quantity": "",
+      "price": "",
+      "id": 10
+    },
+    {
+      "name": "",
+      "sku": "",
+      "user_id": 1,
+      "quantity": "",
+      "price": "",
+      "id": 11
+    },
+    {
+      "name": "",
+      "sku": "",
+      "user_id": 1,
+      "quantity": "",
+      "price": "",
+      "id": 12
+    },
+    {
+      "name": "",
+      "sku": "",
+      "user_id": 1,
+      "quantity": "",
+      "price": "",
+      "id": 13
     }
-  ]
+  ],
+  "session": {
+    "email": "hola@mail.com",
+    "password": "123456",
+    "type": "seller",
+    "id": 1
+  }
 }
