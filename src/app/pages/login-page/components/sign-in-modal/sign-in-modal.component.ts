@@ -22,7 +22,10 @@ export class SignInModalComponent implements OnInit {
     'password': [
       { type: 'required', message: 'Confirme la contraseña' },
       { type: 'minlength', message: 'La contraseña debe ser mayor a 5 caracteres' },
-    ]
+    ],
+    'name': [
+      { type: 'required', message: 'El nombre es requerido' }
+    ],
   }
 
   constructor(
@@ -46,6 +49,9 @@ export class SignInModalComponent implements OnInit {
         type: ['', [
           Validators.required
         ]],
+        name: ['', [
+          Validators.required
+        ]],
 
       },  {
         validator: this.mustMatch('password', 'confirmedPassword')
@@ -60,6 +66,7 @@ export class SignInModalComponent implements OnInit {
     this.user.email = this.singinForm.value.email;
     this.user.password = this.singinForm.value.password;
     this.user.type = this.singinForm.value.type;
+    this.user.name = this.singinForm.value.name;
     
     this._userApiService.addUser(this.user)
     .subscribe(response => {

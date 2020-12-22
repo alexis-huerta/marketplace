@@ -1,11 +1,16 @@
 <section>
   <app-top-bar></app-top-bar>
-    <div class="products-container">
-      <div class="filters">
-        <input type="text">
-      </div>
-      <div>
-        <app-products-list></app-products-list>
-      </div>
+  <div class="products-container">
+    <div class="filters">
+      <p> Filtrar por vendedor:  </p>
+        <select (change)="onChange($event.target.value)" name="" id="">
+          <option *ngFor="let user of users" [value]="user.id"> {{user.name}}</option>
+        </select>
+
+        <p *ngIf="showCleanButton" class="clean"> <span (click)="cleanFilter()">borrar</span> </p>
     </div>
-  </section>
+    <div>
+      <app-products-list [userId$]="userId$"></app-products-list>
+    </div>
+  </div>
+</section>

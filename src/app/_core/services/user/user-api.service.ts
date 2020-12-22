@@ -19,6 +19,7 @@ export class UserApiService {
       email: user.email,
       password: user.password,
       type: user.type,
+      name: user.name
     }
     return this._http.post(this.url + 'users' , params)
     .pipe(map((response: any) => response.json()));
@@ -45,12 +46,20 @@ export class UserApiService {
   }
 
   getCurrentSession() {
-    
     if(localStorage.getItem('session')) {
       this.isLogged$ = true;
-      this.currentUser = JSON.parse(localStorage.getItem('session'));
+        this.currentUser = JSON.parse(localStorage.getItem('session'));
     }
     
+  }
+
+  getUsers() {
+    return this._http.get(this.url + 'users')
+    .pipe(map((response: any) =>{
+      return { 
+        users: (response).map(user => User.parse(user) )
+      } 
+    }));
   }
   
 }

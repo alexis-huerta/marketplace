@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Product } from '../../models/product/product.model';
+import { UserApiService } from '../user/user-api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductApiService {
   url = "http://localhost:3000/";
-  userId = 1;
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private _userApiservice: UserApiService) { }
 
   getProducts() {
     return this._http.get(this.url + 'products')
@@ -21,8 +21,8 @@ export class ProductApiService {
     }));
   }
 
-  getProductsBySeller() {
-    return this._http.get(this.url + 'products?user_id=' + + this.userId) 
+  getProductsBySeller(userId: number) {
+    return this._http.get(this.url + 'products?user_id=' + userId) 
     .pipe(map((response: any) =>{
       return { 
         products: (response).map(product => Product.parse(product) )
@@ -35,7 +35,7 @@ export class ProductApiService {
     const params = {
       name: product.name,
       sku: product.sku,
-      user_id: 1,
+      user_id: this._userApiservice.currentUser.id,
       quantity: product.quantity,
       price: product.price
     }

@@ -4,6 +4,7 @@ export class User {
     email = '';
     password = '';
     type = '';
+    name = '';
 
   constructor() {}
 
@@ -14,6 +15,7 @@ export class User {
  set(obj: any): this {
     this.id = Number(obj.id || this.id || 0);
     this.email = String(obj.email || this.email || '');
+    this.name = String(obj.name || this.name || '');
     this.password = String(obj.password || this.password || '');
     this.type = String(obj.type || this.type || '');
     return this;

@@ -1,3 +1,27 @@
 .products-container {
   display: flex;
 }
+
+.filters {
+  width: 33rem;
+  padding: 0 1rem;
+}
+
+input {
+  display: inline-block !important;
+}
+
+select {
+  outline: none;
+  width: 10rem;
+  height: 1.5rem;
+
+}
+
+.clean {
+  color: red;
+  span {
+    border-bottom: 1px solid red;
+    cursor: pointer;
+  }
+}

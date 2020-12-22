@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Product } from 'src/app/_core/models/product/product.model';
 import { ProductApiService } from 'src/app/_core/services/product/product-api.service';
+import { UserApiService } from 'src/app/_core/services/user/user-api.service';
 import { CreateProductModalComponent } from './components/create-product-modal/create-product-modal.component';
 
 @Component({
@@ -12,7 +13,8 @@ import { CreateProductModalComponent } from './components/create-product-modal/c
 export class SellerPageComponent implements OnInit {
   products: Product;
 
-  constructor(private _productsApiService: ProductApiService,
+  constructor(private _productsApiService: ProductApiService, 
+    private _userApiService: UserApiService,
     public dialog: MatDialog
     ) { }
 
@@ -21,7 +23,7 @@ export class SellerPageComponent implements OnInit {
   }
 
   getProducts() {
-     this._productsApiService.getProductsBySeller()
+     this._productsApiService.getProductsBySeller(this._userApiService.currentUser.id)
      .subscribe(response => {
       this.products = response.products;
      }, error => {
