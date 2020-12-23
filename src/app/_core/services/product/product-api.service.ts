@@ -21,15 +21,37 @@ export class ProductApiService {
     }));
   }
 
-  getProductsBySeller(userId: number) {
-    return this._http.get(this.url + 'products?user_id=' + userId) 
+  getProductsBySeller(value: string) {
+    let search = 'user_id';
+    return this._http.get(this.url + 'products?' + search + '=' + value) 
     .pipe(map((response: any) =>{
       return { 
         products: (response).map(product => Product.parse(product) )
       }
-      
     }));
   }
+
+  filterProductsByPrice(filter?: number, search?: string){
+    if (search === undefined) {
+      search = '';
+    }
+    return this._http.get(this.url + 'products?q=' + search +'&price_gte=0&price_lte=' + filter) 
+    .pipe(map((response: any) =>{
+      return { 
+        products: (response).map(product => Product.parse(product) )
+      }
+    }));
+  }
+
+  getProductsByNameOrSku(search: string) {
+    return this._http.get(this.url + 'products?user_id=' + search) 
+    .pipe(map((response: any) =>{
+      return { 
+        products: (response).map(product => Product.parse(product) )
+      }
+    }));
+  }
+
 
   createProduct(product: Product) {
     const params = {

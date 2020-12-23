@@ -7,10 +7,10 @@
           <option *ngFor="let user of users" [value]="user.id"> {{user.name}}</option>
         </select>
 
-        <p *ngIf="showCleanButton" class="clean"> <span (click)="cleanFilter()">borrar</span> </p>
+        <p *ngIf="showCleanButton" class="clean"> <span (click)="cleanFilter()">Borrar</span> </p>
     </div>
     <div>
-      <app-products-list [userId$]="userId$"></app-products-list>
+      <app-products-list [value$]="userId$"></app-products-list>
     </div>
   </div>
 </section>

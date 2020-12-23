@@ -26,17 +26,15 @@ export class AdminPageComponent implements OnInit {
     this._userApiService.getUsers()
     .subscribe(response => {
       this.users = response.users;
-    
     })
   }
 
   onChange(value) {
-    this.userId$.next({userId: value, clean: false});
+    this.userId$.next({value: value, isUserId: true});
     this.showCleanButton = true;
   }
 
   cleanFilter() {
     this.userId$.next({userId: 0, clean: true});
-
   }
 }

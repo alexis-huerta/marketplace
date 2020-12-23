@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Product } from '../../models/product/product.model';
 import { ProductApiService } from '../../services/product/product-api.service';
@@ -9,44 +9,67 @@ import { ProductApiService } from '../../services/product/product-api.service';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  @Input() userId$ = new Subject();
-  products: Product;
-  userId = 0;
+  @Input() value$ = new Subject();
+  @Input() price$ = new Subject();
+  @Output() maxNumber = new EventEmitter();
+  products: Product[];
+  value: string;
+  prices = [];
+  maxPrice = 0;
 
   constructor( private _productsApiService: ProductApiService) { }
 
   ngOnInit() {
     this.getProducts();
-    this.userIListener();
+    this.valueIListener();
+    this.priceListener();
   }
 
   getProducts() {
     this._productsApiService.getProducts()
     .subscribe(response => {
       this.products = response.products;
+      this.getMaxPrice();
     }, error => console.log(error))
   }
 
-  userIListener() {
-    this.userId$.subscribe((response: {userId: 0, clean:  false}) => {
-      console.log(response);
-      
-      this.userId = response.userId;
-      if(!response.clean) {
-        this.getProductsBySeller(this.userId);
-      } else {
-        this.getProducts();
-      }
+  valueIListener() {
+    this.value$.subscribe((response: {value: '', isUserId: false}) => {
+      this.value = response.value;
+        this.getProductsBySeller(this.value);
     })
   }
 
-  getProductsBySeller(userId: number) {
-    this._productsApiService.getProductsBySeller(userId)
+  priceListener() {
+    this.price$.subscribe((response: {search: string, price: number}) => {
+      console.log('sub', response);
+      this.getProductsByPrice(response.search, response.price);
+    })
+  }
+
+  getProductsBySeller(value: string) {
+    this._productsApiService.getProductsBySeller(value)
     .subscribe(response => {
      this.products = response.products;
     }, error => {
       console.log(error);
     });
  }
+
+ getMaxPrice() {
+  this.prices = this.products.map(product =>{ return product.price});
+  this.maxPrice = Math.max(...this.prices);
+   this.maxNumber.emit(this.maxPrice);
+ }
+
+ getProductsByPrice(search:string , price: number ) {
+   this._productsApiService.filterProductsByPrice(price, search)
+   .subscribe(response => {
+    this.products = response.products;
+   }, error => {
+     console.log(error);
+   })
+ }
+
 
 }

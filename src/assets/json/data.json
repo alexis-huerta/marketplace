@@ -83,17 +83,15 @@
       "sku": "dwdewdew-51516",
       "user_id": 1,
       "quantity": 20,
-      "price": 10,
+      "price": 20,
       "id": 7
     },
     {
-      "name": "perro",
+      "name": "tenis",
       "sku": "dedewdedw",
-      "user": {
-        "userId": 1
-      },
+      "user_id": 3,
       "quantity": 4,
-      "price": 5,
+      "price": 120,
       "id": 8
     }
   ]

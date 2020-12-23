@@ -2,3 +2,35 @@
   display: flex;
 }
 
+.filters {
+  margin-left: 1rem;
+}
+
+.labes {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    display: block;
+  }
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 2rem;
+
+  input {
+    height: 1.8rem;
+    width: 13rem;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    max-width: 1rem;
+  }
+}

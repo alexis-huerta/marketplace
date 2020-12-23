@@ -21,3 +21,11 @@ button {
     background-image: linear-gradient(to left, #E62B2B, #E6B238);
     color: #ffffff;
 }
+
+.clean {
+    color: red;
+    span {
+      border-bottom: 1px solid red;
+      cursor: pointer;
+    }
+  }
