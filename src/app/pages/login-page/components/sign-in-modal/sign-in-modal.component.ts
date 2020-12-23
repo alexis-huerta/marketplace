@@ -12,6 +12,8 @@ export class SignInModalComponent implements OnInit {
   private _isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   user = new User();
   singinForm: FormGroup;
+  setTimeout: any;
+  isTaken = false;
 
   errorMessage = {
     'email': [
@@ -54,7 +56,7 @@ export class SignInModalComponent implements OnInit {
         ]],
 
       },  {
-        validator: this.mustMatch('password', 'confirmedPassword')
+        validator: [this.mustMatch('password', 'confirmedPassword'), this.checkisEmailTaken()]
       });
     }
 
@@ -77,21 +79,31 @@ export class SignInModalComponent implements OnInit {
     
   }
 
- mustMatch(password: string, confirmPassword: string) {
+  checkisEmailTaken() {
     return (formGroup: FormGroup) => {
-        const control = formGroup.controls[password];
-        const matchingControl = formGroup.controls[confirmPassword];
-
-        if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-            return;
-        }
-        if (control.value !== matchingControl.value) {
-            matchingControl.setErrors({ mustMatch: true });
-        } else {
-            matchingControl.setErrors(null);
-        }   
+      if (formGroup.controls['email'].errors && !formGroup.controls['email'].errors.isTaken) {
+        return;
+      }
+      this.checkEmailExist(formGroup.controls['email']);
     }
-}
+  }
+  
+  mustMatch(password: string, confirmPassword: string) {
+    
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[password];
+      const matchingControl = formGroup.controls[confirmPassword];
+      
+      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+        return;
+      }
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ mustMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }   
+    }
+  }
 
 
   getErrorMessage(fild: string, error: string): boolean {
@@ -101,6 +113,20 @@ export class SignInModalComponent implements OnInit {
   isValidFild(fild: string): boolean {
     return (this.singinForm.get(fild).touched || this.singinForm.get(fild).dirty)
     && !this.singinForm.get(fild).valid
+  }
+
+
+  checkEmailExist(control) {
+    this._userApiService.checkEmail(control.value)
+    .subscribe(response => {
+      console.log(response.users.length );
+      
+      if (response.users.length === 0) {
+       control.setErrors(null);
+      } else {
+       control.setErrors({isTaken: true});
+      }
+    });
   }
 
 }

@@ -61,5 +61,14 @@ export class UserApiService {
       } 
     }));
   }
+
+  checkEmail(email: string) {
+    return this._http.get(this.url + 'users?email=' + email)
+    .pipe(map((response: any) =>{
+      return { 
+        users: (response).map(user => User.parse(user) )
+      } 
+    }));
+  }
   
 }

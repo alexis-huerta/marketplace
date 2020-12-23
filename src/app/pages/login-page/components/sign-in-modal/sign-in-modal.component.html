@@ -4,7 +4,7 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Nombre</mat-label>
-      <input matInput formControlName="name" required>
+      <input matInput formControlName="name" required >
       <mat-error *ngFor="let error of errorMessage.name">
         <ng-container *ngIf="isValidFild('name') && getErrorMessage('name', error.type)">
           {{ error.message }}
@@ -14,7 +14,11 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Correo</mat-label>
-      <input matInput formControlName="email" required>
+      <input matInput formControlName="email" required >
+      <mat-error *ngIf="singinForm.controls.email.errors && 
+      singinForm.controls.email.errors.isTaken">
+           ya existe una cuenta con este correo
+      </mat-error>
       <mat-error *ngFor="let error of errorMessage.email">
         <ng-container *ngIf="isValidFild('email') && getErrorMessage('email', error.type)">
           {{ error.message }}
@@ -35,6 +39,10 @@
     <mat-form-field class="example-full-width">
       <mat-label>Contraseña</mat-label>
       <input type="password" matInput formControlName="confirmedPassword" required>
+      <mat-error *ngIf="singinForm.controls.confirmedPassword.errors && 
+      singinForm.controls.confirmedPassword.errors.mustMatch">
+      Las contraseñas no coinciden
+    </mat-error>
       <mat-error *ngFor="let error of errorMessage.password">
         <ng-container *ngIf="isValidFild('confirmedPassword') && getErrorMessage('confirmedPassword', error.type)">
           {{ error.message }}
