@@ -5,7 +5,7 @@
     <div class="user">
       <img src="./../../../assets/images/users.png" alt="">
       <div class="info">
-        <p>Juan Perez</p> 
+        <p>{{ this.userApiservice.currentUser.name}}</p> 
         <span (click)="logout()">Cerrar sesion</span>
       </div>
     </div>
