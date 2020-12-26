@@ -2,7 +2,7 @@
   "name": "marketplace",
   "version": "0.0.0",
   "engines": {
-    "node": "v10.16.3",
+    "node": "10.16.3",
     "npm": "6.9.0"
   },
   "scripts": {
@@ -12,7 +12,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postinstall": "ng build --prod"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
