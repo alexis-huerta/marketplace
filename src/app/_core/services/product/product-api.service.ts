@@ -8,7 +8,9 @@ import { UserApiService } from '../user/user-api.service';
   providedIn: 'root'
 })
 export class ProductApiService {
-  url = "http://localhost:3000/";
+  //url = "http://localhost:3000/";
+  url = " https://themarketplace2020.herokuapp.com/";
+ 
   constructor(private _http: HttpClient, private _userApiservice: UserApiService) { }
 
   getProducts() {

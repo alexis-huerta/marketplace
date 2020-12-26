@@ -8,7 +8,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserApiService {
-  url = "http://localhost:3000/";
+  //url = "http://localhost:3000/";
+  url = " https://themarketplace2020.herokuapp.com/";
   currentUser;
   isLogged$ = false;
 
