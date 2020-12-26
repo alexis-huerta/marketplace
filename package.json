@@ -1,6 +1,10 @@
 {
   "name": "marketplace",
   "version": "0.0.0",
+  "engines": {
+    "node": "v10.16.3",
+    "npm": "6.9.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -28,12 +32,12 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.6",
-    "@angular/cli": "~8.3.6",
-    "@angular/compiler-cli": "~8.2.8",
+    "@angular/cli": "^11.0.5",
+    "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "~8.2.8",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -46,11 +50,6 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
-  },
-
-  "engines": {
-    "node": "10.16.3",
-    "npm": "6.9.0"
-
   }
+  
 }
