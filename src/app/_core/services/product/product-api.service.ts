@@ -8,8 +8,8 @@ import { UserApiService } from '../user/user-api.service';
   providedIn: 'root'
 })
 export class ProductApiService {
-  //url = "http://localhost:3000/";
-  url = " https://themarketplace2020.herokuapp.com/";
+   //url = "http://localhost:3000/";
+   url = " https://my-json-server.typicode.com/alexis-huerta/marketplace/";
  
   constructor(private _http: HttpClient, private _userApiservice: UserApiService) { }
 
