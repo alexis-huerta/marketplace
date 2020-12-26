@@ -9,6 +9,7 @@ import { UserApiService } from '../user/user-api.service';
 })
 export class ProductApiService {
    //url = "http://localhost:3000/";
+   
    url = " https://my-json-server.typicode.com/alexis-huerta/marketplace/";
  
   constructor(private _http: HttpClient, private _userApiservice: UserApiService) { }
