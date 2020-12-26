@@ -52,7 +52,6 @@ export class LoginPageComponent implements OnInit {
     const dialogRef = this.dialog.open(SignInModalComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('dialog result', result);
     });
   }
 
@@ -70,8 +69,7 @@ export class LoginPageComponent implements OnInit {
       .subscribe(response => {
         localStorage.setItem('session',JSON.stringify(response.user[0]));
         this.goTo(response.user[0].type);
-      }, error => {console.log(error)}
-      )
+      })
   }
 
   getCurrentSession() {

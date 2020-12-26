@@ -30,7 +30,7 @@ export class ProductsListComponent implements OnInit {
     .subscribe(response => {
       this.products = response.products;
       this.getMaxPrice();
-    }, error => console.log(error))
+    })
   }
 
   valueIListener() {
@@ -42,7 +42,6 @@ export class ProductsListComponent implements OnInit {
 
   priceListener() {
     this.price$.subscribe((response: {search: string, price: number}) => {
-      console.log('sub', response);
       this.getProductsByPrice(response.search, response.price);
     })
   }
@@ -52,7 +51,6 @@ export class ProductsListComponent implements OnInit {
     .subscribe(response => {
      this.products = response.products;
     }, error => {
-      console.log(error);
     });
  }
 
@@ -67,7 +65,6 @@ export class ProductsListComponent implements OnInit {
    .subscribe(response => {
     this.products = response.products;
    }, error => {
-     console.log(error);
    })
  }
 

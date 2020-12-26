@@ -27,7 +27,7 @@ export class SellerPageComponent implements OnInit {
      .subscribe(response => {
       this.products = response.products;
      }, error => {
-       console.log(error);
+       
      });
   }
 
@@ -35,7 +35,7 @@ export class SellerPageComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateProductModalComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('dialog result', result);
+      
     });
   }
 

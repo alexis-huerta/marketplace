@@ -15,7 +15,7 @@ import { AdminGuard } from './_core/guards/adminGuard/admin.guard';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

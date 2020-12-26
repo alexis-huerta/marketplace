@@ -72,9 +72,7 @@ export class SignInModalComponent implements OnInit {
     
     this._userApiService.addUser(this.user)
     .subscribe(response => {
-      console.log("usuario agregado");
     }, error => {
-      console.log(error);
     });
     
   }
@@ -119,7 +117,6 @@ export class SignInModalComponent implements OnInit {
   checkEmailExist(control) {
     this._userApiService.checkEmail(control.value)
     .subscribe(response => {
-      console.log(response.users.length );
       
       if (response.users.length === 0) {
        control.setErrors(null);

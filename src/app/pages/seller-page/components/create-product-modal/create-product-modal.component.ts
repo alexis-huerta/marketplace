@@ -52,9 +52,7 @@ export class CreateProductModalComponent implements OnInit {
   createProduct() {
     this._productApiService.createProduct(this.productForm.value as Product)
     .subscribe(response => {
-      console.log(response);
     }, error => {
-      console.log(error);
     });
   }
 
