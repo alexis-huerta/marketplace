@@ -12,6 +12,7 @@ import { CreateProductModalComponent } from './components/create-product-modal/c
 })
 export class SellerPageComponent implements OnInit {
   products: Product;
+  showMenu = false;
 
   constructor(private _productsApiService: ProductApiService, 
     private _userApiService: UserApiService,
@@ -37,6 +38,10 @@ export class SellerPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
     });
+  }
+
+  activeMenu() {
+    this.showMenu = !this.showMenu;
   }
 
 }

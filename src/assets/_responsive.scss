@@ -1,0 +1,43 @@
+/* Responsiveness helpers */
+$resolution-small: 0px;
+$resolution-medium: 640px;
+$resolution-large: 1024px;
+$resolution-xlarge: 1200px;
+$resolution-xxlarge: 1440px;
+
+@mixin resolutions-above($resolution) {
+  @media screen and (min-width: $resolution) {
+    @content;
+  }
+}
+
+@mixin resolutions-below($resolution) {
+  @media screen and (max-width: $resolution) {
+    @content;
+  }
+}
+
+@mixin resolutions-between($min, $max) {
+  @media screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin resolutions-height-between($min, $max) {
+  @media screen and (min-height: $min) and (max-height: $max) {
+    @content;
+   }
+
+}
+
+@mixin screen-portrait {
+  @media screen and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin screen-landscape {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}

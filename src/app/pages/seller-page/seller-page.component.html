@@ -2,7 +2,10 @@
   <app-top-bar></app-top-bar>
 
   <div class="info-container">
-    <div class="menu">
+    <div class="menu" [class.show-menu]="showMenu">
+      <div class="close-menu" (click)="activeMenu()">
+        <img src="./../../../assets/images/close.png" alt="">
+      </div>
       <ul>
         <li>Dashboard</li>
         <li>Cotizaciones</li>
@@ -13,6 +16,9 @@
 
     <div class="table-container">
       <div>
+        <span class="open-menu" (click)="activeMenu()">
+          <img src="./../../../assets/images/menu.png" alt="">
+        </span>
         <div class="button-container">
           <button class="create-button" (click)="openDialog()">Crear producto</button>
         </div>

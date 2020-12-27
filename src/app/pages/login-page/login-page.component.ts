@@ -49,7 +49,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(SignInModalComponent);
+    const dialogRef = this.dialog.open(SignInModalComponent, {
+      width: '320px',
+    });
 
     dialogRef.afterClosed().subscribe(result => {
     });

@@ -27,6 +27,13 @@
       "type": "seller",
       "name": "Nuevo",
       "id": 4
+    },
+    {
+      "email": "amazon@mail.com",
+      "password": "123456",
+      "type": "seller",
+      "name": "Amazon",
+      "id": 5
     }
   ],
   "products": [
@@ -44,31 +51,7 @@
       "user_id": 2,
       "quantity": "20",
       "price": "120",
-      "id": 2
-    },
-    {
-      "name": "espejo",
-      "sku": "12ddw4521",
-      "user_id": 2,
-      "quantity": "20",
-      "price": "120",
-      "id": 3
-    },
-    {
-      "name": "espejo",
-      "sku": "12ddw4521",
-      "user_id": 2,
-      "quantity": "20",
-      "price": "120",
       "id": 4
-    },
-    {
-      "name": "espejo",
-      "sku": "12ddw4521",
-      "user_id": 2,
-      "quantity": "20",
-      "price": "120",
-      "id": 5
     },
     {
       "name": "Tenis",
@@ -87,12 +70,44 @@
       "id": 7
     },
     {
-      "name": "tenis",
-      "sku": "dedewdedw",
-      "user_id": 3,
-      "quantity": 4,
-      "price": 120,
-      "id": 8
+      "name": "Tv",
+      "sku": "hjyt-5210",
+      "user_id": 1,
+      "quantity": 20,
+      "price": 5000,
+      "id": 9
+    },
+    {
+      "name": "PS4",
+      "sku": "HTUS-5120",
+      "user_id": 1,
+      "quantity": 200,
+      "price": 9000,
+      "id": 11
+    },
+    {
+      "name": "Radio",
+      "sku": "JHU-5136",
+      "user_id": 1,
+      "quantity": 10,
+      "price": 200,
+      "id": 13
+    },
+    {
+      "name": "camisa",
+      "sku": "SJU-51236",
+      "user_id": 1,
+      "quantity": 100,
+      "price": 100,
+      "id": 15
+    },
+    {
+      "name": "Lampara",
+      "sku": "HJLM-5135",
+      "user_id": 5,
+      "quantity": 20,
+      "price": 300,
+      "id": 16
     }
   ]
 }
