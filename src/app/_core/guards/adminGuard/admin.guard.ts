@@ -13,12 +13,12 @@ export class AdminGuard implements CanActivate {
   }
 
   canActivate(): boolean {
-      if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'admin') {
+      if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'admin') {
         return true;
-      } else if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'buyer') {
+      } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'buyer') {
         this._router.navigate(['/comprador']);
         return false;
-      } else if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'seller') {
+      } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'seller') {
         this._router.navigate(['/vendedor']);
         return false;
       }

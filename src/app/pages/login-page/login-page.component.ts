@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { User } from 'src/app/_core/models/user/user.model';
 import { UserApiService } from 'src/app/_core/services/user/user-api.service';
 import { SignInModalComponent } from './components/sign-in-modal/sign-in-modal.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-page',
@@ -29,7 +29,8 @@ export class LoginPageComponent implements OnInit {
     public dialog: MatDialog,  
     public formBuilder: FormBuilder,
     private _userApiService: UserApiService,
-    private _router: Router) {
+    private _router: Router,
+    private _snackBar: MatSnackBar) {
     this.loginForm = this.formBuilder.group({
       email: ['', [
         Validators.required,
@@ -57,6 +58,8 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
+ 
+
   getErrorMessage(fild: string, error: string): boolean {
     return this.loginForm.get(fild).hasError(error);
   }
@@ -69,8 +72,17 @@ export class LoginPageComponent implements OnInit {
   login() {
       this._userApiService.login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(response => {
-        localStorage.setItem('session',JSON.stringify(response.user[0]));
-        this.goTo(response.user[0].type);
+        if(response.user[0]) {
+          
+          localStorage.setItem('session',JSON.stringify(response.user[0]));
+          this.goTo(response.user[0].type);
+        } else {
+          this._snackBar.open('Verifique su usuario y/o contraseña', '', {
+            duration: 3000
+          });
+        }
+      }, error => {
+        
       })
   }
 
@@ -79,15 +91,16 @@ export class LoginPageComponent implements OnInit {
   }
 
   goTo(type: string) {
+    
     switch(type) {
       case 'seller': 
-      this._router.navigate(['/vendedor'])
+      this._router.navigateByUrl('/vendedor')
       break
       case 'buyer': 
-      this._router.navigate(['/comprador'])
+      this._router.navigateByUrl('/comprador')
       break
       case 'admin': 
-      this._router.navigate(['/administrador'])
+      this._router.navigateByUrl('/administrador')
       break
     }
   }

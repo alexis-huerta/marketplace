@@ -11,7 +11,7 @@ export class UserApiService {
   //url = "http://localhost:3000/";
   url = " https://my-json-server.typicode.com/alexis-huerta/marketplace/";
   currentUser;
-  isLogged$ = false;
+  isLogged = false;
 
   constructor(private _http: HttpClient) { }
 
@@ -48,7 +48,7 @@ export class UserApiService {
 
   getCurrentSession() {
     if(localStorage.getItem('session')) {
-      this.isLogged$ = true;
+      this.isLogged = true;
         this.currentUser = JSON.parse(localStorage.getItem('session'));
     }
     

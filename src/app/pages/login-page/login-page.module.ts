@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -20,7 +21,8 @@ import { MatRadioModule } from '@angular/material/radio';
     FormsModule,
     MatInputModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   entryComponents: [SignInModalComponent]
 })

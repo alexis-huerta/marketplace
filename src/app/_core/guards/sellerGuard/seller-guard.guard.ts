@@ -13,12 +13,12 @@ export class SellerGuardGuard implements CanActivate {
   }
 
   canActivate(): boolean {
-      if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'seller') {
+      if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'seller') {
         return true;
-      } else if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'buyer') {
+      } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'buyer') {
         this._router.navigate(['/comprador']);
         return false;
-      } else if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'admin') {
+      } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'admin') {
         this._router.navigate(['/administrador']);
         return false;
       }

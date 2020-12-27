@@ -34,9 +34,15 @@ export class ProductsListComponent implements OnInit {
   }
 
   valueIListener() {
-    this.value$.subscribe((response: {value: '', isUserId: false}) => {
+    this.value$.subscribe((response: {value: '', clean: false}) => {
       this.value = response.value;
+
+      if (!response.clean) {
         this.getProductsBySeller(this.value);
+      } else {
+        
+        this.getProducts();
+      }
     })
   }
 

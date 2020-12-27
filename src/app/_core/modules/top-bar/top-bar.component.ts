@@ -19,6 +19,7 @@ export class TopBarComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('session');
+    this.userApiservice.isLogged = false;
     this._router.navigate(['']);
   }
 }

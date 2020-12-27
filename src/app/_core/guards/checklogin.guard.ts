@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 import { UserApiService } from '../services/user/user-api.service';
 
 @Injectable({
@@ -14,11 +13,16 @@ export class CheckloginGuard implements CanActivate {
   }
 
   canActivate(): boolean {
-      if(this._userApiService.isLogged$) {
+      if(!this._userApiService.isLogged) {
         return true;
       } else {
-        this._router.navigate(['']);
-        return false;
+        if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'seller') {
+          this._router.navigate(['/vendedor']);
+        } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'buyer') {
+          this._router.navigate(['/comprador']);
+        } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'admin') {
+          this._router.navigate(['/administrador']);
+        }
       }
   }
   

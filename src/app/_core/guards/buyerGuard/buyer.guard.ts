@@ -12,12 +12,12 @@ export class BuyerGuard implements CanActivate {
   }
 
   canActivate(): boolean {
-    if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'buyer') {
+    if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'buyer') {
       return true;
-    } else if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'seller') {
+    } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'seller') {
       this._router.navigate(['/vendedor']);
       return false;
-    } else if(this._userApiService.isLogged$ && this._userApiService.currentUser.type === 'admin') {
+    } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'admin') {
       this._router.navigate(['/administrador']);
       return false;
     } else {

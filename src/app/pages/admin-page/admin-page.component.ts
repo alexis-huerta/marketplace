@@ -30,11 +30,11 @@ export class AdminPageComponent implements OnInit {
   }
 
   onChange(value) {
-    this.userId$.next({value: value, isUserId: true});
+    this.userId$.next({value: value, clean: false});
     this.showCleanButton = true;
   }
 
   cleanFilter() {
-    this.userId$.next({userId: 0, clean: true});
+    this.userId$.next({value: '', clean: true});
   }
 }
