@@ -17,11 +17,14 @@ export class CheckloginGuard implements CanActivate {
         return true;
       } else {
         if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'seller') {
-          this._router.navigate(['/vendedor']);
+          this._router.navigateByUrl('/vendedor');
+          return false;
         } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'buyer') {
-          this._router.navigate(['/comprador']);
+          this._router.navigateByUrl('/comprador');
+          return false;
         } else if(this._userApiService.isLogged && this._userApiService.currentUser.type === 'admin') {
-          this._router.navigate(['/administrador']);
+          this._router.navigateByUrl('/administrador');
+          return false;
         }
       }
   }

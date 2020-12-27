@@ -73,7 +73,6 @@ export class LoginPageComponent implements OnInit {
       this._userApiService.login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(response => {
         if(response.user[0]) {
-          
           localStorage.setItem('session',JSON.stringify(response.user[0]));
           this.goTo(response.user[0].type);
         } else {

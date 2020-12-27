@@ -7,7 +7,7 @@ import { SellerGuardGuard } from './_core/guards/sellerGuard/seller-guard.guard'
 
 
 const routes: Routes = [
-  { path: '', loadChildren: './pages/login-page/login-page.module#LoginPageModule'},
+  { path: '', loadChildren: './pages/login-page/login-page.module#LoginPageModule', canActivate: [CheckloginGuard] },
   { path: 'vendedor', loadChildren: './pages/seller-page/seller-page.module#SellerPageModule', canActivate: [SellerGuardGuard]},
   { path: 'comprador', loadChildren: './pages/buyer-page/buyer-page.module#BuyerPageModule', canActivate: [BuyerGuard]},
   { path: 'administrador', loadChildren: './pages/admin-page/admin-page.module#AdminPageModule', canActivate: [AdminGuard]},

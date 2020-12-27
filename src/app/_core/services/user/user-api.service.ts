@@ -1,19 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { User } from '../../models/user/user.model';
 import { map } from "rxjs/operators"; 
-import { BehaviorSubject, Subject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserApiService {
   //url = "http://localhost:3000/";
   url = " https://my-json-server.typicode.com/alexis-huerta/marketplace/";
   currentUser;
   isLogged = false;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,
+    @Inject(PLATFORM_ID) private _platformId) { }
 
   addUser(user: User) {
     const params = {
@@ -47,10 +50,14 @@ export class UserApiService {
   }
 
   getCurrentSession() {
-    if(localStorage.getItem('session')) {
-      this.isLogged = true;
-        this.currentUser = JSON.parse(localStorage.getItem('session'));
+    if(isPlatformBrowser(this._platformId)) {
+      if(localStorage.getItem('session')) {
+        this.isLogged = true;
+          this.currentUser = JSON.parse(localStorage.getItem('session'));
+      }
+
     }
+
     
   }
 
